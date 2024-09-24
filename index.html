@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#000000">
+    <title>PIM Club - Мотокросс</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1 class="animated-text">PIM CLUB 🏍️</h1>
+        </header>
+        <section class="buttons">
+            <button class="btn modern-btn" onclick="scrollToSignUp()">📝 Записаться на тренировку</button>
+            <button class="btn modern-btn" onclick="scrollToSection('photos-section')">📸 Фото с тренировок</button>
+            <button class="btn modern-btn" onclick="scrollToSection('track-section')">📍 Посмотреть трассу</button>
+            <button class="btn modern-btn" onclick="scrollToSection('contact-section')">📞 Связаться с нами</button>
+
+        </section>
+    </div>
+
+    <!-- Секция для регистрации на тренировку -->
+    <div id="sign-up-section" class="sign-up-section">
+        <h2>📝 Регистрация на тренировку</h2>
+        <form id="signUpForm">
+            <label for="name">Введите ваше имя (по желанию):</label>
+            <input type="text" id="name" name="name" placeholder="Ваше имя">
+
+            <label for="day">Выберите день недели:</label>
+            <select id="day" name="day" required>
+                <option value="Понедельник">Понедельник</option>
+                <option value="Вторник">Вторник</option>
+                <option value="Среда">Среда</option>
+                <option value="Четверг">Четверг</option>
+                <option value="Пятница">Пятница</option>
+                <option value="Суббота">Суббота</option>
+                <option value="Воскресенье">Воскресенье</option>
+            </select>
+            
+            <label for="time">Выберите время:</label>
+            <select id="time" name="time" required>
+                <option value="08:00">08:00</option>
+                <option value="11:30">11:30</option>
+                <option value="14:30">14:30</option>
+                <option value="16:00">16:00</option>
+            </select>
+
+            <label for="phone">Введите ваш номер телефона:</label>
+            <div class="phone-input">
+                <span class="flag">🇷🇺</span>
+                <input type="tel" id="phone" name="phone" required placeholder="+7 (___) ___-__-__">
+            </div>
+            <button type="submit" class="submit-btn">Записаться</button>
+        </form>
+    </div>
+
+    <!-- Секция с трассой -->
+    <div id="track-section" class="track-section">
+        <h2>📍 Трасса</h2>
+        <div class="track-photos">
+            <img src="trasa.png" alt="Трасса 1" class="clickable-photo" onclick="openLightbox(this)">
+            <img src="trasa1.png" alt="Трасса 2" class="clickable-photo" onclick="openLightbox(this)">
+            <img src="trasa2.png" alt="Трасса 3" class="clickable-photo" onclick="openLightbox(this)">
+        </div>
+        <a href="https://yandex.ru/maps/-/CDH1j6YK" target="_blank" class="btn map-btn">Посмотреть на карте</a>
+    </div>
+
+    <!-- Секция с фотографиями -->
+    <div id="photos-section" class="photos-section">
+        <h2>📸 Фото с тренировок</h2>
+        <div class="photo-gallery">
+            <img src="tren.png" alt="Фото 1" class="clickable-photo" onclick="openLightbox(this)">
+            <img src="tren1.png" alt="Фото 2" class="clickable-photo" onclick="openLightbox(this)">
+            <img src="tren2.png" alt="Фото 3" class="clickable-photo" onclick="openLightbox(this)">
+        </div>
+        <div class="vk-link">
+            <p>🔗 Еще больше фотографий вы можете посмотреть в нашем официальном сообществе ВКонтакте:</p>
+            <a href="https://vk.com/pimclubmx" target="_blank" class="vk-btn">Перейти в VK 👥</a>
+        </div>
+    </div>
+
+    <!-- Модальное окно для просмотра изображений -->
+    <div id="lightbox" class="lightbox">
+        <span class="close" onclick="closeLightbox()">&times;</span>
+        <img class="lightbox-content" id="lightbox-img">
+        <a class="prev" onclick="changeImage(-1)">&#10094;</a>
+        <a class="next" onclick="changeImage(1)">&#10095;</a>
+    </div>
+
+    <!-- Секция "Связаться с нами" -->
+    <div id="contact-section" class="contact-section">
+        <h2>📞 Связаться с нами</h2>
+        <p>✔ Мы предоставим всё необходимое для занятий:</p>
+        <ul>
+            <li>🏍️ Современные мотоциклы и полную защитную экипировку;</li>
+            <li>🤝 Индивидуальные и групповые тренировки;</li>
+            <li>💰 ВЫГОДНЫЕ абонементы и разовые занятия;</li>
+            <li>🧥 Раздевалка;</li>
+            <li>🚗 Секция находится в 10-ти минутах езды от центра города;</li>
+            <li>🕓 Работаем ЕЖЕДНЕВНО с 10:00 до 20:00, по выходным и праздникам до 17:00;</li>
+            <li>🌤️ Тренировки проводятся на открытом воздухе;</li>
+            <li>👶 Детские группы делятся по возрасту:
+                <ul>
+                    <li>5-8 лет;</li>
+                    <li>8-12 лет;</li>
+                    <li>12-16 лет;</li>
+                    <li>16-18 лет;</li>
+                </ul>
+            </li>
+            <li>📅 УДОБНОЕ РАСПИСАНИЕ ЗАНЯТИЙ МОЖНО СОГЛАСОВАТЬ;</li>
+        </ul>
+        <p>📍 Координаты секции: в Яндекс навигаторе введите «Автодром Серпухов», слева от бетонного завода, возле п. Мирный.</p>
+        <p>📱 Телефон, WhatsApp, Telegram: <a href="tel:+79252723702">+7(925)272-37-02</a></p>
+    </div>
+
+
+    <script src="script.js"></script>
+</body>
+</html>

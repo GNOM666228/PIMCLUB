@@ -1,0 +1,449 @@
+/* Основные настройки */
+body {
+    background-color: #111; /* Фон страницы — не будет виден за секциями */
+    color: #ffffff;
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    overflow-y: auto;
+}
+
+.container {
+    text-align: center;
+    padding: 40px;
+    border-radius: 15px;
+    margin: 50px auto;
+    max-width: 800px;
+}
+
+/* Секция с гифкой для главного меню */
+.container {
+    background-color: rgba(0, 0, 0, 0.7); /* Сделали фон темнее */
+    background-image: url('drifting-red-bull.gif'); /* Замените на путь к вашей гифке */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+header h1 {
+    font-size: 3em;
+    margin-bottom: 30px;
+    color: #ff6b6b;
+    text-shadow: 4px 4px 10px rgba(255, 0, 0, 0.5);
+    animation: text-fade 2s ease-in-out;
+}
+
+@keyframes text-fade {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Анимация гибки под заголовком */
+header h1::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    bottom: -10px;
+    width: 100px;
+    height: 4px;
+    background-color: #ff6b6b;
+    border-radius: 2px;
+    animation: wave 2s infinite ease-in-out;
+    transform: translateX(-50%);
+}
+
+@keyframes wave {
+    0% { transform: scaleX(1); }
+    50% { transform: scaleX(1.5); }
+    100% { transform: scaleX(1); }
+}
+
+/* Кнопки и их эффекты */
+.buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.btn {
+    background-color: #ff6b6b;
+    color: #ffffff;
+    border: none;
+    padding: 15px 25px;
+    font-size: 1.3em;
+    border-radius: 10px;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(to right, #ff4e4e, #ff6b6b);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+/* Добавляем анимацию для кнопок при наведении */
+.btn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 30px rgba(255, 0, 0, 0.5); /* Кнопка немного выделяется */
+}
+
+/* Убираем анимации для фото */
+.clickable-photo, .gallery-photo, .track-photo {
+    transition: none; /* Убираем любые эффекты анимации */
+}
+
+/* Фоны секций с сильным затемнением и прозрачностью через псевдоэлементы */
+.sign-up-section, .track-section, .photos-section, .contact-section {
+    position: relative;
+    padding: 40px;
+    margin-top: 50px;
+    text-align: center;
+    border-radius: 10px;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    z-index: 1;
+}
+
+.sign-up-section::before, 
+.track-section::before, 
+.photos-section::before, 
+.contact-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8); /* Затемнение */
+    z-index: -1;
+    border-radius: 10px;
+}
+
+/* Фоны для секций */
+.sign-up-section {
+    background-image: url('moto.png'); /* Замените на путь к нужному фону */
+}
+
+.track-section {
+    background-image: url('phon.png'); /* Замените на путь к нужному фону */
+}
+
+.photos-section {
+    background-image: url('Leonardo_Lightning_XL_Greetings_please_create_for_me_some_stun_0.jpg'); /* Замените на путь к нужному фону */
+}
+
+.contact-section {
+    background-image: url('Leonardo_Anime_XL_Greetings_please_create_for_me_some_stunning_1.jpg'); /* Замените на путь к нужному фону */
+}
+
+/* Фон для кнопок меню без анимации для изображений */
+.modern-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('pngwing.com.png') no-repeat center;
+    background-size: cover;
+    opacity: 0.3;
+}
+
+/* Кнопки меню при наведении выделяются */
+.modern-btn:hover::before {
+    opacity: 0.7;
+    transform: none; /* Убираем любые анимации поворота */
+}
+
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 10;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.9);
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background-color: #222;
+    padding: 30px;
+    border-radius: 15px;
+    color: white;
+    width: 80%;
+    max-width: 600px;
+}
+
+.close {
+    color: #fff;
+    float: right;
+    font-size: 30px;
+    cursor: pointer;
+}
+
+.close:hover {
+    color: #ff6b6b;
+}
+
+.submit-btn {
+    background-color: #ff6b6b;
+    color: #ffffff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.2em;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.submit-btn:hover {
+    background-color: #ff4e4e;
+}
+.sign-up-section {
+    background-color: #222;
+    padding: 40px;
+    margin-top: 50px;
+    text-align: center;
+    border-radius: 10px;
+}
+
+.sign-up-section h2 {
+    color: #ff6b6b;
+    margin-bottom: 20px;
+}
+
+.sign-up-section form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.sign-up-section label, .sign-up-section select, .sign-up-section input {
+    margin-bottom: 15px;
+    font-size: 1.2em;
+    color: white;
+}
+
+.sign-up-section select, .sign-up-section input {
+    padding: 10px;
+    border-radius: 5px;
+    border: none;
+    background-color: #333;
+    color: white;
+}
+
+.sign-up-section .submit-btn {
+    background-color: #ff6b6b;
+    color: #ffffff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.2em;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.sign-up-section .submit-btn:hover {
+    background-color: #ff4e4e;
+}
+.track-section, .photos-section, .team-section {
+    background-color: #222;
+    padding: 40px;
+    margin-top: 50px;
+    text-align: center;
+    border-radius: 10px;
+}
+
+.track-photos, .photo-gallery {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.track-photos img, .photo-gallery img {
+    width: 150px;
+    height: 150px;
+    border-radius: 10px;
+}
+
+.map-btn {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #ff6b6b;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    margin-top: 20px;
+}
+.phone-input {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.phone-input .flag {
+    font-size: 24px;
+    margin-right: 10px;
+}
+
+.phone-input input {
+    padding-left: 10px;
+    border-radius: 5px;
+    background-color: #333;
+    color: white;
+    border: none;
+    width: 250px;
+}
+
+.submit-btn {
+    background-color: #ff6b6b;
+    color: #ffffff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.2em;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.submit-btn:hover {
+    background-color: #ff4e4e;
+}
+/* Lightbox */
+.lightbox {
+    display: none;
+    position: fixed;
+    z-index: 10;
+    padding-top: 50px;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+.lightbox-content {
+    display: block;
+    margin: auto;
+    max-width: 80%;
+    max-height: 80%;
+}
+
+.close {
+    position: absolute;
+    top: 20px;
+    right: 35px;
+    color: white;
+    font-size: 40px;
+    cursor: pointer;
+}
+
+.prev, .next {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    width: auto;
+    padding: 16px;
+    margin-top: -22px;
+    color: white;
+    font-weight: bold;
+    font-size: 20px;
+    transition: 0.6s ease;
+}
+
+.prev {
+    left: 0;
+}
+
+.next {
+    right: 0;
+}
+.photos-section {
+    background-color: #222;
+    padding: 40px;
+    margin-top: 50px;
+    text-align: center;
+    border-radius: 10px;
+}
+
+.photo-gallery {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.photo-gallery img {
+    width: 150px;
+    height: 150px;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.vk-link {
+    margin-top: 20px;
+    font-size: 1.2em;
+    color: #fff;
+}
+
+.vk-link p {
+    margin-bottom: 10px;
+}
+
+.vk-btn {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #4c75a3;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 1.2em;
+    transition: background-color 0.3s;
+}
+
+.vk-btn:hover {
+    background-color: #3b5998;
+}
+.contact-section {
+    background-color: #222;
+    padding: 40px;
+    margin-top: 50px;
+    text-align: left;
+    border-radius: 10px;
+    color: #fff;
+}
+
+.contact-section h2 {
+    text-align: center;
+    font-size: 2em;
+    margin-bottom: 20px;
+    color: #ff6b6b;
+}
+
+.contact-section ul {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+.contact-section ul li {
+    font-size: 1.2em;
+    margin-bottom: 10px;
+    line-height: 1.5;
+}
+
+.contact-section a {
+    color: #4c75a3;
+    text-decoration: none;
+}
+
+.contact-section a:hover {
+    text-decoration: underline;
+}
+
+.contact-section p {
+    font-size: 1.2em;
+    margin-bottom: 20px;
+}
+
